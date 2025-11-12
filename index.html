@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Messenger: @Rekz Banz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #19124e;
+      color: #fefeff;
+    }
+    h1 { color: #fefeff; }
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover { background-color: #0056b3; }
+    button:disabled { background-color: #ccc; cursor: default; }
+    .question { margin-bottom: 25px; }
+    .correct { color: #00ff88; font-weight: bold; }
+    .wrong { color: #ff5577; font-weight: bold; }
+    .highlight { margin-top: 10px; }
+    input[type="radio"] { transform: scale(1.5); margin-right: 10px; }
+    #finishBtn { font-size: 2em; padding: .1em 1em; }
+    .nav-buttons { margin-top: 20px; display: flex; gap: 10px; }
+
+    #codeInput {
+      font-size: 15px;
+      padding: 10px 20px;
+      width: 300px;
+      border-radius: 8px;
+      border: 2px solid #888;
+    }
+
+    #codeInput::placeholder { font-size: 15px; }
+
+    /* Smaller font for Enter Access Code */
+    #accessSection h2 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    /* Style for filename display above access code */
+    #fileDisplay {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #9fe3ff;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="accessSection">
+    <p id="fileDisplay"></p> <!-- NEW filename display -->
+    <h2>Enter Access Code</h2>
+    <input type="password" id="codeInput" placeholder="Enter code here" />
+    <br>
+    <button type="button" id="accessSubmit" style="padding:10px 40px; font-size:20px;">Login</button>
+    <p id="message" aria-live="polite"></p>
+    <br>
+    <p id="tipsArea">Loading tips...</p>
+  </div>
+
+  <div id="mainContent" style="display:none;">
+    <div id="reviewerSection">
+      <h1>Reviewer: English 104</h1>
+ 
+ <details>
+  <summary>1️⃣ Literary Themes</summary>
+  <ul>
+    <li><b>Definition:</b> The main idea or message explored in a story through characters, setting, dialogue, and plot.</li>
+    <li><b>Principles in Stating the Theme:</b>
+      <ol>
+        <li>Reports all major details of the story</li>
+        <li>May be stated in multiple ways</li>
+        <li>Must be in complete statements</li>
+        <li>Asserts a sweeping statement about life</li>
+        <li>Avoids clichés or familiar sayings</li>
+      </ol>
+    </li>
+  </ul>
+  <h4>21st Century Themes:</h4>
+  <ul>
+    <li><b>Identity and Selfhood:</b> Self-discovery and understanding one’s identity.</li>
+    <li><b>Conflict, Terrorism, and War:</b> Effects of war on humanity.</li>
+    <li><b>Natural/Man-Made Catastrophe:</b> Disasters reshaping life and symbolizing consequence.</li>
+    <li><b>Technology and Digital Culture:</b> Effects of technology on identity and morality.</li>
+    <li><b>Social Justice, Capitalism, Inequality:</b> Explores oppression and class struggle.</li>
+    <li><b>Memory and History:</b> How past events shape identity.</li>
+    <li><b>Migration and Diaspora:</b> Experiences of displacement and adaptation.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>2️⃣ Literary Devices</summary>
+  <ul>
+    <li><b>Repetition:</b> Repeating words/phrases for emphasis.</li>
+    <li><b>Flashback:</b> Interruption to show past events.</li>
+    <li><b>Juxtaposition:</b> Contrast between two elements.</li>
+    <li><b>Symbol:</b> Object representing deeper meaning.</li>
+    <li><b>Imagery:</b> Appeals to the senses (visual, auditory, tactile, etc.).</li>
+    <li><b>Allusion:</b> Reference to other works, people, or events.</li>
+    <li><b>Anaphora:</b> Repetition at the beginning of clauses.</li>
+    <li><b>Antithesis:</b> Contrasting ideas in balanced phrases.</li>
+    <li><b>Metaphor:</b> Direct comparison (no “like/as”).</li>
+    <li><b>Simile:</b> Comparison using “like/as”.</li>
+    <li><b>Personification:</b> Giving human traits to nonhumans.</li>
+    <li><b>Irony, Hyperbole, Oxymoron, Paradox:</b> Emphasize contrast or exaggeration.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>3️⃣ Analyzing Philippine Literary Texts</summary>
+  <h4>National vs. Regional Literature</h4>
+  <ul>
+    <li><b>National Literature:</b> Represents shared culture and history of the nation.</li>
+    <li><b>Regional Literature:</b> Focuses on traditions and experiences of a specific region.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>4️⃣ “Letter to Mother from Her Daughter Who was Sent Abroad” – Shane Carreon</summary>
+  <ul>
+    <li><b>Themes:</b> Identity, Displacement, Colonial Mentality, Loss of Language</li>
+    <li><b>Tone:</b> Nostalgic, melancholic, reflective</li>
+    <li><b>Symbols:</b> 
+      <ul>
+        <li>Sea/Waves – Distance and migration</li>
+        <li>Snow – Foreignness, unattainable dreams</li>
+        <li>Whitening Creams – Colonial standards</li>
+      </ul>
+    </li>
+    <li><b>Devices Used:</b> Repetition, Visual Imagery, Metaphor, Juxtaposition, Personification</li>
+  </ul>
+</details>
+
+<details>
+  <summary>5️⃣ “The Conversion” – J. Neil Garcia</summary>
+  <ul>
+    <li><b>Themes:</b> Toxic Masculinity, Gender Norms, Loss of Innocence, Cycle of Violence</li>
+    <li><b>Tone:</b> Dark, sorrowful, tragic</li>
+    <li><b>Symbols:</b> 
+      <ul>
+        <li>Metal Drum – Control and forced purification</li>
+        <li>Water – Rebirth and erasure</li>
+        <li>Drowned Girl – Loss of femininity</li>
+      </ul>
+    </li>
+    <li><b>Devices:</b> Symbolism, Imagery, Irony, Metaphor, Personification</li>
+  </ul>
+</details>
+
+<details>
+  <summary>6️⃣ “Marawi” – Jaime An Lim</summary>
+  <ul>
+    <li><b>Themes:</b> Loss of Peace, Cultural Memory, Devastation of War</li>
+    <li><b>Tone:</b> Mournful, nostalgic</li>
+    <li><b>Devices:</b> Local Color, Personification, Allusion, Imagery, Foreshadowing</li>
+  </ul>
+</details>
+
+<details>
+  <summary>7️⃣ “Marawi” – Simeon Dumdum Jr.</summary>
+  <ul>
+    <li><b>Themes:</b> War, Human Suffering, Indifference, Moral Reflection</li>
+    <li><b>Tone:</b> Somber, reflective, guilt-ridden</li>
+    <li><b>Device:</b> Juxtaposition between peace and destruction</li>
+  </ul>
+</details>
+
+<details>
+  <summary>📝 Sample Exam Questions and Answers</summary>
+  <ol>
+    <li><b>Q:</b> What is the main idea of a literary theme?<br><b>A:</b> It is the central message explored through characters, plot, and setting.</li>
+    <li><b>Q:</b> Identify a theme of the 21st century that deals with displacement.<br><b>A:</b> Migration and Diaspora.</li>
+    <li><b>Q:</b> What does the snow symbolize in Shane Carreon’s poem?<br><b>A:</b> Foreignness and unattainable dreams.</li>
+    <li><b>Q:</b> Which literary device uses contrasting ideas in balanced phrases?<br><b>A:</b> Antithesis.</li>
+    <li><b>Q:</b> What is the tone of “Marawi” by Jaime An Lim?<br><b>A:</b> Nostalgic and mournful.</li>
+    <li><b>Q:</b> What does the “metal drum” symbolize in J. Neil Garcia’s “The Conversion”?<br><b>A:</b> Control and forced purification.</li>
+  </ol>
+</details>
+ 
+      <button onclick="showQuiz()">Start Quiz</button>
+    </div>
+
+    <div id="quizSection" style="display:none;">
+      <h1>Quiz: English 104</h1>
+      <p style="font-size: 15px; font-weight: 600; margin: 0;">Multiple-Choice Quiz (random items)</p>
+      <form id="quizForm"></form>
+
+      <div class="nav-buttons">
+        <button id="finishBtn">Score</button>
+        <button type="button" onclick="refreshQuiz()">Restart Quiz</button>
+        <button type="button" onclick="backToReviewer()">Reviewer</button>
+      </div>
+      <div id="result" class="highlight"></div>
+    </div>
+  </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // ===== Display filename on login page =====
+  const quizTitleEl = document.querySelector("#quizSection h1");
+  const displayFileName = quizTitleEl ? quizTitleEl.textContent.replace("Quiz: ", "").trim() : "index.html";
+  const fileDisplay = document.getElementById("fileDisplay");
+  if (fileDisplay) fileDisplay.textContent = displayFileName;
+
+  // ===== SETTINGS =====
+  const BIN_URL_CODE = "https://api.jsonbin.io/v3/b/6912958fd0ea881f40e0cafc/latest";
+  const BIN_URL_TIPS = "https://api.jsonbin.io/v3/b/68f1b652ae596e708f180d5d/latest";
+  const MASTER_KEY_CODE = "$2a$10$CvK4w8DTXZ1//5H1cpGQIerIT8Kzvk0FQHosdNm.XS0Q9n6sMmaf6";
+  const MASTER_KEY_TIPS = "$2a$10$CvK4w8DTXZ1//5H1cpGQIerIT8Kzvk0FQHosdNm.XS0Q9n6sMmaf6";
+
+  // === LOGGER BIN (Access Log) ===
+  const BIN_URL_LOG = "https://api.jsonbin.io/v3/b/6911a123d0ea881f40df102a";
+  const MASTER_KEY_LOG = MASTER_KEY_CODE;
+
+  // === SCORE LOG BIN (New) ===
+  const BIN_URL_SCORE = "https://api.jsonbin.io/v3/b/6912985cd0ea881f40e0cf7c";
+  const MASTER_KEY_SCORE = MASTER_KEY_CODE;
+
+  // ===== ELEMENTS =====
+  const accessSection = document.getElementById("accessSection");
+  const mainContent = document.getElementById("mainContent");
+  const codeInput = document.getElementById("codeInput");
+  const accessSubmit = document.getElementById("accessSubmit");
+  const message = document.getElementById("message");
+  const tipsArea = document.getElementById("tipsArea");
+
+  // ===== HELPERS =====
+  function findStringKey(obj, keyName) {
+    if (!obj || typeof obj !== "object") return undefined;
+    for (const k in obj) {
+      if (k.toLowerCase() === keyName.toLowerCase() && typeof obj[k] === "string") {
+        return obj[k];
+      }
+      const v = obj[k];
+      if (typeof v === "object") {
+        const nested = findStringKey(v, keyName);
+        if (nested) return nested;
+      }
+    }
+  }
+
+  async function getDeviceInfo() {
+    const uaData = navigator.userAgentData || {};
+    const ua = navigator.userAgent;
+    const platform = navigator.platform;
+    const language = navigator.language;
+    const screenResolution = `${window.screen.width}x${window.screen.height}`;
+    const browserVersion = uaData.brands
+      ? uaData.brands.map(b => `${b.brand} ${b.version}`).join(", ")
+      : ua;
+
+    // Determine general device type
+    const uaLower = ua.toLowerCase();
+    let deviceType = "desktop";
+    if (/mobi|iphone|android/i.test(uaLower)) {
+      deviceType = "mobile";
+    } else if (/tablet|ipad|nexus 7|nexus 10/i.test(uaLower)) {
+      deviceType = "tablet";
+    }
+
+    // Get approximate IP + region/country info (non-identifying)
+    let networkInfo = "Unavailable";
+    try {
+      const res = await fetch("https://ipapi.co/json/");
+      if (res.ok) {
+        const info = await res.json();
+        networkInfo = {
+          ip: info.ip,
+          city: info.city,
+          region: info.region,
+          country: info.country_name,
+          org: info.org
+        };
+      }
+    } catch {
+      networkInfo = "Network lookup failed";
+    }
+
+    // Optional: request geolocation with user consent
+    const location = await new Promise(resolve => {
+      if (!navigator.geolocation) return resolve("Geolocation not supported");
+      navigator.geolocation.getCurrentPosition(
+        pos => resolve({
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude,
+          accuracy: pos.coords.accuracy
+        }),
+        () => resolve("Permission denied or unavailable"),
+        { timeout: 5000 }
+      );
+    });
+
+    return {
+      ua,
+      browserVersion,
+      platform,
+      language,
+      screenResolution,
+      deviceType,
+      networkInfo,
+      location
+    };
+  }
+
+  async function saveLoginToJsonBin(codeUsed) {
+    try {
+      // get filename from quiz title h1
+      const quizTitleElLocal = document.querySelector("#quizSection h1");
+      const fileName = quizTitleElLocal ? quizTitleElLocal.textContent.replace("Quiz: ", "").trim() : "index.html";
+
+      const getRes = await fetch(`${BIN_URL_LOG}/latest`, {
+        headers: { "X-Master-Key": MASTER_KEY_LOG }
+      });
+      const data = await getRes.json();
+      const logs = Array.isArray(data.record) ? data.record : [];
+
+      const deviceInfo = await getDeviceInfo();
+
+      logs.push({
+        event: "Login Access",
+        accessCode: codeUsed,
+        filename: fileName,
+        timestamp: new Date().toLocaleString(),
+        device: deviceInfo
+      });
+
+      await fetch(BIN_URL_LOG, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": MASTER_KEY_LOG
+        },
+        body: JSON.stringify(logs)
+      });
+
+      console.log(`✅ Login logged successfully (file: ${fileName}).`);
+    } catch (err) {
+      console.error("❌ Error logging to JSONBin:", err);
+    }
+  }
+
+  // ===== LOAD TIPS =====
+  async function loadTips() {
+    try {
+      const resp = await fetch(BIN_URL_TIPS, {
+        headers: { "X-Master-Key": MASTER_KEY_TIPS, "Content-Type": "application/json" }
+      });
+      const data = await resp.json();
+      const tipsText =
+        findStringKey(data, "tips") ||
+        "Tips: <br>Press Enter after typing the code.<br>Stay online when entering.<br>For help, contact juan.tipak@gmail.com.";
+      tipsArea.innerHTML = tipsText;
+    } catch (err) {
+      console.error("Tips fetch error:", err);
+      tipsArea.innerHTML =
+        "Could not load page. Please check your internet connection.";
+    }
+  }
+  loadTips();
+
+  // === NEW FUNCTION: Save Quiz Score to JSONBin ===
+  async function saveScoreToJsonBin(score, total) {
+    try {
+      const quizTitleElLocal = document.querySelector("#quizSection h1");
+      const fileName = quizTitleElLocal ? quizTitleElLocal.textContent.replace("Quiz: ", "").trim() : "index.html";
+
+      const getRes = await fetch(`${BIN_URL_SCORE}/latest`, {
+        headers: { "X-Master-Key": MASTER_KEY_SCORE }
+      });
+      const data = await getRes.json();
+      const logs = Array.isArray(data.record) ? data.record : [];
+      const deviceInfo = await getDeviceInfo();
+
+      logs.push({
+        event: "Quiz Score",
+        score: `${score}/${total}`,
+        filename: fileName,
+        timestamp: new Date().toLocaleString(),
+        device: deviceInfo
+      });
+
+      await fetch(BIN_URL_SCORE, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": MASTER_KEY_SCORE
+        },
+        body: JSON.stringify(logs)
+      });
+      console.log("✅ Quiz score saved to JSONBin successfully.");
+    } catch (err) {
+      console.error("❌ Error saving quiz score:", err);
+    }
+  }
+
+  // ===== LOCAL STORAGE =====
+  const fileName = window.location.pathname.split("/").pop() || "default";
+  const storageKey = "savedAccessCode_" + fileName.replace(/\W+/g, "_");
+  const savedCode = localStorage.getItem(storageKey);
+  if (savedCode) codeInput.value = savedCode;
+  codeInput.addEventListener("input", () =>
+    localStorage.setItem(storageKey, codeInput.value)
+  );
+
+  // ===== LOGIN HANDLER =====
+  codeInput.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") accessSubmit.click();
+  });
+
+  accessSubmit.addEventListener("click", async () => {
+    const input = codeInput.value.trim();
+    if (!input) {
+      message.textContent = "Please enter the access code.";
+      return;
+    }
+
+    accessSubmit.disabled = true;
+    codeInput.disabled = true;
+    message.textContent = "Checking...";
+
+    try {
+      const resp = await fetch(BIN_URL_CODE, {
+        headers: { "X-Master-Key": MASTER_KEY_CODE, "Content-Type": "application/json" }
+      });
+
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const data = await resp.json();
+
+      const remoteCode =
+        findStringKey(data, "accessCode") ||
+        findStringKey(data, "code") ||
+        findStringKey(data, "access");
+
+      if (!remoteCode) {
+        message.textContent = "Access code not found in storage record.";
+        throw new Error("No accessCode in JSON");
+      }
+
+      if (input === remoteCode.trim()) {
+        accessSection.style.display = "none";
+        mainContent.style.display = "block";
+        message.textContent = "";
+        saveLoginToJsonBin(input); // <<== AUTO LOG TO JSONBIN
+        setTimeout(() => {
+          const btn = document.querySelector("#mainContent button");
+          if (btn) btn.focus();
+        }, 100);
+      } else {
+        message.textContent = "Wrong code. Please contact: juan.tipak@gmail.com";
+        localStorage.removeItem(storageKey);
+        accessSubmit.disabled = false;
+        codeInput.disabled = false;
+      }
+    } catch (err) {
+      console.error("Access fetch error:", err);
+      message.textContent = "Error fetching code. Check console for details.";
+      accessSubmit.disabled = false;
+      codeInput.disabled = false;
+    }
+  });
+
+  // ===== QUIZ LOGIC =====
+  const pool = [
+  
+{q: "What is a literary theme?", choices: ["The main idea or message explored in a story", "The sequence of events in a story", "The conflict between characters", "The dialogue between characters", "The background setting of a story", "The resolution of the plot"], correctIndex: 0},
+
+{q: "Which of the following is NOT a principle in stating a theme?", choices: ["May be asserted in more than one way", "Avoids simplifying the theme to a general saying", "Should be written as a sweeping statement about life", "Can be a familiar proverb", "Should report all major details of the story", "Must be stated in complete statements"], correctIndex: 3},
+
+{q: "Which of the following is an example of a theme statement?", choices: ["Nature is a powerful force to be reckoned with", "The story has a happy ending", "The character is brave", "There is conflict between good and evil", "Love is found", "The hero saves the day"], correctIndex: 0},
+
+{q: "The 21st century literary theme ‘Identity and Selfhood’ explores:", choices: ["How individuals understand or conceal who they are", "The struggle between rich and poor", "The effect of war on families", "Technological advancement in society", "Environmental preservation", "Global warming awareness"], correctIndex: 0},
+
+{q: "Which literary theme focuses on the human experience of war?", choices: ["Conflict, Terrorism, and War", "Technology and Digital Culture", "Memory and History", "Migration and Diaspora", "Social Justice and Inequality", "Identity and Selfhood"], correctIndex: 0},
+
+{q: "‘Natural or Man-Made Catastrophe’ as a theme deals with:", choices: ["Large-scale disasters reshaping human life", "Technological inventions", "Love and betrayal", "Cultural humor", "Political satire", "Religious devotion"], correctIndex: 0},
+
+{q: "The theme ‘Technology and Digital Culture’ examines:", choices: ["How technology impacts society, identity, and morality", "Nature’s role in society", "Power struggles in politics", "Religious influences in culture", "Romantic relationships", "Environmental issues"], correctIndex: 0},
+
+{q: "‘Social Justice, Capitalism, and Inequality’ explores:", choices: ["Class struggles and societal inequalities", "Global warming and climate change", "Religious tolerance", "Technology in daily life", "Artistic creativity", "Gender equality"], correctIndex: 0},
+
+{q: "‘Memory and History’ as a literary theme addresses:", choices: ["How past events shape identity and society", "How technology changes identity", "How humor reflects culture", "How love develops over time", "How people fight for freedom", "How heroes are made"], correctIndex: 0},
+
+{q: "‘Migration and Diaspora’ focuses on:", choices: ["Experiences of displacement and cultural adaptation", "Political movements", "Artistic expression", "Technological innovation", "Economic development", "Global warming"], correctIndex: 0},
+
+{q: "Which literary device involves repeating words or phrases for emphasis?", choices: ["Repetition", "Allusion", "Irony", "Metaphor", "Juxtaposition", "Imagery"], correctIndex: 0},
+
+{q: "What literary device interrupts the sequence to revisit past events?", choices: ["Flashback", "Foreshadowing", "Allusion", "Irony", "Symbolism", "Personification"], correctIndex: 0},
+
+{q: "Juxtaposition is defined as:", choices: ["Placing contrasting elements side by side", "Comparing using 'like' or 'as'", "Referring to past events", "Exaggerating for effect", "Creating sensory impressions", "Giving human traits to objects"], correctIndex: 0},
+
+{q: "Which device uses an image or object to represent a deeper meaning?", choices: ["Symbol", "Simile", "Irony", "Allusion", "Metonymy", "Anaphora"], correctIndex: 0},
+
+{q: "What type of imagery appeals to the sense of smell?", choices: ["Olfactory imagery", "Tactile imagery", "Gustatory imagery", "Visual imagery", "Kinesthetic imagery", "Auditory imagery"], correctIndex: 0},
+
+{q: "An allusion refers to:", choices: ["A reference to people, places, or works of art", "A contrast of ideas", "A symbolic meaning", "An exaggeration", "A comparison using 'like'", "A sensory description"], correctIndex: 0},
+
+{q: "Anaphora is characterized by:", choices: ["Repetition at the beginning of clauses", "A figure of speech involving exaggeration", "A statement that contradicts itself", "A contrast between expectation and reality", "Giving human qualities to objects", "Using one sense to describe another"], correctIndex: 0},
+
+{q: "What is an example of Antithesis?", choices: ["Ask not what your country can do for you...", "She looked to the left, she looked to the right", "The wind whispered", "The world’s a stage", "All hands on deck", "War is peace"], correctIndex: 0},
+
+{q: "Apostrophe involves:", choices: ["Addressing an absent person or object as if it could respond", "Contradictory ideas in one phrase", "Using symbols to represent deeper meaning", "Direct comparison of unlike things", "Creating irony", "Repetition for effect"], correctIndex: 0},
+
+{q: "Which is an example of Hyperbole?", choices: ["Deliberate exaggeration for emphasis", "Contrast between ideas", "Understatement", "Repetition", "Symbolism", "Literal meaning"], correctIndex: 0},
+
+{q: "Irony is best defined as:", choices: ["Contrast between expectation and reality", "Use of metaphors", "Descriptive language", "Exaggeration for effect", "Symbolic meaning", "Balanced phrasing"], correctIndex: 0},
+
+{q: "Litotes uses:", choices: ["Understatement using double negatives", "Exaggeration", "Simile", "Metaphor", "Comparison of opposites", "Symbolism"], correctIndex: 0},
+
+{q: "A metaphor is:", choices: ["A direct comparison without using 'like' or 'as'", "A mild understatement", "A reference to history", "A sensory image", "A humorous exaggeration", "A type of irony"], correctIndex: 0},
+
+{q: "Which device substitutes a word with something related?", choices: ["Metonymy", "Allusion", "Symbol", "Metaphor", "Paradox", "Hyperbole"], correctIndex: 0},
+
+{q: "An oxymoron combines:", choices: ["Two contradictory words", "Similar ideas", "Exaggerated statements", "Balanced clauses", "Repetition", "Literal meanings"], correctIndex: 0},
+
+{q: "A paradox is:", choices: ["A statement that seems contradictory but reveals truth", "An exaggerated phrase", "A literal description", "A symbol of emotion", "A type of metaphor", "A figure of sound"], correctIndex: 0},
+
+{q: "Personification is:", choices: ["Giving human qualities to nonhuman things", "Making an understatement", "A sensory description", "Using symbols", "A type of repetition", "An exaggeration"], correctIndex: 0},
+
+{q: "Which device uses comparison with 'like' or 'as'?", choices: ["Simile", "Metaphor", "Symbol", "Allusion", "Hyperbole", "Irony"], correctIndex: 0},
+
+{q: "Synecdoche means:", choices: ["Using a part to represent the whole", "Contradictory ideas", "Irony in speech", "Comparing opposites", "Understatement", "Exaggeration"], correctIndex: 0},
+
+{q: "Synesthesia describes:", choices: ["One sense using terms of another", "Contradictory statements", "Symbolic meaning", "Exaggerated expressions", "Balanced phrases", "Literal description"], correctIndex: 0},
+
+{q: "National Literature represents:", choices: ["Shared history, culture, and identity of a nation", "Local folklore only", "Only modern Philippine stories", "Foreign influences", "Religious writing", "Epic poetry"], correctIndex: 0},
+
+{q: "Regional Literature focuses on:", choices: ["Stories and traditions of a specific region", "Universal human experiences", "Foreign cultures", "Modern global themes", "Religious myths", "Political satire"], correctIndex: 0},
+
+{q: "In Shane Carreon’s poem, the sea and waves symbolize:", choices: ["Distance and migration", "Peace and serenity", "Anger and destruction", "Love and affection", "Death and rebirth", "Cultural unity"], correctIndex: 0},
+
+{q: "In 'Letter to Mother,' snow symbolizes:", choices: ["Foreignness and unattainable dreams", "Purity and peace", "Freedom", "Destruction", "Faith", "Anger"], correctIndex: 0},
+
+{q: "Whitening creams in the poem represent:", choices: ["Internalized colonial beauty standards", "Desire for wealth", "Loss of innocence", "Rebellion against norms", "Freedom", "Purity"], correctIndex: 0},
+
+{q: "The tone of Shane Carreon’s poem is:", choices: ["Nostalgic and melancholic", "Angry and violent", "Joyful and optimistic", "Romantic and dreamy", "Cynical and sarcastic", "Neutral and factual"], correctIndex: 0},
+
+{q: "In 'The Conversion,' the metal drum symbolizes:", choices: ["Control and forced purification", "Peace and harmony", "Joy and rebirth", "Love and unity", "Rebellion and freedom", "Education and growth"], correctIndex: 0},
+
+{q: "The drowned girl in 'The Conversion' symbolizes:", choices: ["Death of femininity and innocence", "Hope and recovery", "Freedom from pain", "Religious purity", "Spiritual awakening", "Moral justice"], correctIndex: 0},
+
+{q: "The theme of 'The Conversion' includes:", choices: ["Toxic masculinity and patriarchal violence", "Environmental awareness", "Romantic relationships", "Political conflict", "Social media influence", "Religious salvation"], correctIndex: 0},
+
+{q: "The tone of 'The Conversion' is:", choices: ["Dark, violent, and tragic", "Joyful and bright", "Romantic and tender", "Calm and peaceful", "Cynical and humorous", "Neutral"], correctIndex: 0},
+
+{q: "In 'Marawi' by Jaime An Lim, the poem paints:", choices: ["A serene image of Marawi before its destruction", "A city rebuilding itself", "A war hero’s journey", "A mythical landscape", "A humorous depiction of war", "A political satire"], correctIndex: 0},
+
+{q: "The theme of Jaime An Lim’s 'Marawi' includes:", choices: ["Loss of peace and innocence", "Technological innovation", "Religious devotion", "Love and betrayal", "Social media", "Economic progress"], correctIndex: 0},
+
+{q: "The tone of 'Marawi' by Jaime An Lim is:", choices: ["Nostalgic and mournful", "Playful and happy", "Cynical and sarcastic", "Neutral and detached", "Hopeful and romantic", "Angry and loud"], correctIndex: 0},
+
+{q: "The device 'Local Color' in 'Marawi' refers to:", choices: ["Depicting specific places and cultural details", "Contrast of ideas", "Symbolic repetition", "Use of irony", "Personification", "Hyperbole"], correctIndex: 0},
+
+{q: "In 'Marawi' by Simeon Dumdum Jr., the central contrast is between:", choices: ["Peaceful observer’s life and violent war", "Dreams and reality", "Love and hate", "Faith and doubt", "Hope and despair", "Nature and technology"], correctIndex: 0},
+
+{q: "The tone of Simeon Dumdum Jr.'s 'Marawi' is:", choices: ["Somber and reflective", "Romantic and hopeful", "Sarcastic and funny", "Optimistic and bright", "Neutral", "Angry"], correctIndex: 0},
+
+{q: "Which literary device is used heavily in Dumdum Jr.’s 'Marawi'?", choices: ["Juxtaposition", "Simile", "Irony", "Allusion", "Symbolism", "Hyperbole"], correctIndex: 0}
+
+
+  ];
+
+  function pickRandom(arr, n) {
+    const copy = [...arr];
+    const result = [];
+    while (result.length < n && copy.length > 0) {
+      const idx = Math.floor(Math.random() * copy.length);
+      result.push(copy.splice(idx, 1)[0]);
+    }
+    return result;
+  }
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  function selectRandomChoices(item) {
+    const correctChoice = item.choices[item.correctIndex];
+    let others = item.choices.filter((_, idx) => idx !== item.correctIndex);
+    shuffleArray(others);
+    let selected = [correctChoice, ...others.slice(0, 4)];
+    shuffleArray(selected);
+    item.correctIndex = selected.indexOf(correctChoice);
+    item.choices = selected;
+  }
+
+  let quizItems = [];
+
+  window.showQuiz = function () {
+    document.getElementById("reviewerSection").style.display = "none";
+    document.getElementById("quizSection").style.display = "block";
+    buildQuiz();
+  };
+
+  window.backToReviewer = function () {
+    document.getElementById("quizSection").style.display = "none";
+    document.getElementById("reviewerSection").style.display = "block";
+    document.getElementById("quizForm").innerHTML = "";
+    document.getElementById("result").innerHTML = "";
+  };
+
+  window.refreshQuiz = function () {
+    document.getElementById("quizForm").innerHTML = "";
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("finishBtn").disabled = false;
+    buildQuiz();
+  };
+
+  function buildQuiz() {
+    quizItems = pickRandom(pool, Math.min(20, pool.length));
+    const form = document.getElementById("quizForm");
+    form.innerHTML = "";
+    quizItems.forEach((item, i) => {
+      selectRandomChoices(item);
+      const div = document.createElement("div");
+      div.className = "question";
+      const q = document.createElement("p");
+      q.textContent = `${i + 1}. ${item.q}`;
+      div.appendChild(q);
+      item.choices.forEach((choice, idx) => {
+        const label = document.createElement("label");
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = `q${i}`;
+        radio.value = idx;
+        label.appendChild(radio);
+        label.appendChild(document.createTextNode(" " + choice));
+        div.appendChild(label);
+        div.appendChild(document.createElement("br"));
+      });
+      form.appendChild(div);
+    });
+  }
+
+  document.getElementById("finishBtn").addEventListener("click", async function () {
+    let score = 0;
+    const total = quizItems.length;
+    for (let i = 0; i < total; i++) {
+      const radios = document.querySelectorAll(`input[name="q${i}"]`);
+      let selected = -1;
+      radios.forEach(r => { if (r.checked) selected = parseInt(r.value); });
+      const div = document.getElementById("quizForm").children[i];
+      if (selected === quizItems[i].correctIndex) {
+        score++;
+        div.insertAdjacentHTML("beforeend", "<div class='correct'>✔ Correct</div>");
+      } else {
+        const correctAnswer = quizItems[i].choices[quizItems[i].correctIndex];
+        div.insertAdjacentHTML("beforeend", `<div class='wrong'>✘ Wrong. Correct: ${correctAnswer}</div>`);
+      }
+      radios.forEach(r => r.disabled = true);
+    }
+    document.getElementById("result").innerHTML = `<h2>Your Score: ${score} / ${total}</h2>`;
+    this.disabled = true;
+
+    // 🧠 Save score to JSONBin
+    await saveScoreToJsonBin(score, total);
+  });
+});
+</script>
+</body>
+</html>
